@@ -1,1 +1,59 @@
-./api.db
+# Binaries
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.o
+*.a
+*.out
+
+# Build directories
+/bin/
+/pkg/
+/out/
+
+# VS Code
+.vscode/
+/.history/
+
+# JetBrains IDEs
+.idea/
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# Vim
+*.swp
+*.swo
+
+# Emacs
+*~
+.#*
+
+# Vendor dependencies
+/vendor/
+
+# Environment variables
+.env
+
+# Logs
+*.log
+
+# Temporary files
+*.tmp
+
+# Database files
+*.db
+
+# Test result files
+*.test
+/test-results/
+
+# Coverage reports
+*.coverprofile
+coverage.out
+
+# Specific to your project
+api.db
