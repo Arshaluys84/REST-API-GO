@@ -1,0 +1,9 @@
+PUT http://localhost:8080/events/4
+content-Type: application/json
+
+{
+    "name": "Arshaluys",
+    "description":"test desc updates",
+    "location": "test locaion updates",
+    "dateTime": "2024-01-01T15:20:30.111Z" 
+}

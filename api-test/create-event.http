@@ -1,0 +1,9 @@
+POST http://localhost:8080/events
+content-Type: application/json
+
+{
+    "name": "Arshiii",
+    "description":"testii desc",
+    "location": "testiii locaion",
+    "dateTime": "2025-01-01T15:20:30.111Z" 
+}
