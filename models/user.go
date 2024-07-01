@@ -1,6 +1,11 @@
 package models
 
-import "arsh.com/rest-api/db"
+import (
+	"errors"
+
+	"arsh.com/rest-api/db"
+	"arsh.com/rest-api/routes/utils"
+)
 
 type User struct {
 	ID       int64
@@ -18,7 +23,13 @@ func (u User) Save() error {
 
 	defer stmt.Close()
 
-	res, err := stmt.Exec(u.Email, u.Password)
+	hashedPassword, err := utils.HashPassword(u.Password)
+
+	if err != nil {
+		return err
+	}
+
+	res, err := stmt.Exec(u.Email, hashedPassword)
 
 	if err != nil {
 		return err
@@ -29,4 +40,25 @@ func (u User) Save() error {
 	u.ID = userId
 	return err
 
+}
+
+func (u User) ValidateCredentials() error {
+	query := "SELECT password FROM users WHERE email = ?"
+
+	row := db.DB.QueryRow(query, u.Email)
+
+	var retrivedPassvord string
+	err := row.Scan(&retrivedPassvord)
+
+	if err != nil {
+		return errors.New("credentials invalid")
+	}
+
+	passwordIsValid := utils.CheckPasswordHash(u.Password, retrivedPassvord)
+
+	if !passwordIsValid {
+		return errors.New("credentials invalid")
+	}
+
+	return nil
 }
