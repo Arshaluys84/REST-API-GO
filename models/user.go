@@ -4,7 +4,7 @@ import (
 	"errors"
 
 	"arsh.com/rest-api/db"
-	"arsh.com/rest-api/routes/utils"
+	"arsh.com/rest-api/utils"
 )
 
 type User struct {
@@ -13,7 +13,7 @@ type User struct {
 	Password string `binding:"required"`
 }
 
-func (u User) Save() error {
+func (u *User) Save() error {
 	query := "INSERT INTO users(email, password) VALUES (?,?)"
 	stmt, err := db.DB.Prepare(query)
 
@@ -42,13 +42,13 @@ func (u User) Save() error {
 
 }
 
-func (u User) ValidateCredentials() error {
-	query := "SELECT password FROM users WHERE email = ?"
+func (u *User) ValidateCredentials() error {
+	query := "SELECT id, password FROM users WHERE email = ?"
 
 	row := db.DB.QueryRow(query, u.Email)
 
 	var retrivedPassvord string
-	err := row.Scan(&retrivedPassvord)
+	err := row.Scan(&u.ID, &retrivedPassvord)
 
 	if err != nil {
 		return errors.New("credentials invalid")

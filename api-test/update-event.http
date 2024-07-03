@@ -1,9 +1,10 @@
 PUT http://localhost:8080/events/4
 content-Type: application/json
+authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3QyMkB0ZXN0LmNvbSIsImV4cCI6MTcyMDAxNDA1OCwidXNlcklkIjoyfQ.d-KKp3w0GA9SQOvgNLCodYJaJn-aCUQevrA427nx0Qc7
 
 {
     "name": "Arshaluys",
-    "description":"test desc updates",
+    "description":"test desc updates 4444",
     "location": "test locaion updates",
     "dateTime": "2024-01-01T15:20:30.111Z" 
 }
