@@ -1,9 +1,9 @@
 POST http://localhost:8080/events
 content-Type: application/json
-authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3QyMkB0ZXN0LmNvbSIsImV4cCI6MTcyMDAxNDA1OCwidXNlcklkIjoyfQ.d-KKp3w0GA9SQOvgNLCodYJaJn-aCUQevrA427nx0Qc
+authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3QyQHRlc3QuY29tIiwiZXhwIjoxNzIwMDkwNTMxLCJ1c2VySWQiOjN9.HIAOKSG6BTJFGz8HJusT0dBIEvbZ4-o9xDAfuCZlvGk
 
 {
-    "name": "Arshaluys",
+    "name": "Arshaluys3333",
     "description":"testii desc 23333",
     "location": "testiii locaion 233333 ",
     "dateTime": "2025-01-01T15:20:30.111Z" 
